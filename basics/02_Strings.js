@@ -48,3 +48,14 @@ let a = "affan"
 let b = "affan"
 
 console.log(a.localeCompare(b))
+
+// 7. Slice()
+
+console.log(a.slice(1, 4))
+console.log(a.split())
+
+// 8. split() (skips the given letter)
+
+const sen = "The brown bear is brown"
+const SplitWord = sen.split(" ")
+console.log(SplitWord[1])
