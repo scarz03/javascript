@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Generator</title>
+</head>
+<body style="background-color: #212121; color:white;">
+    <h1>CLICK START TO GENERATE COLOUR!</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+
+    <p id="output"></p>
+
+</body>
+
+<script>
+
+
+const RandomColor = function (){
+    const hex = '0123456789ABCDEF';
+    let color = '#';
+    for(let i=0; i<6; i++){
+        color += hex[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
+    let intervalid; 
+    const StartChangingColor = function (){
+        if(intervalid == null){
+        intervalid = setInterval(changeBgColor, 1000);
+        }
+    }
+
+    const stopChangingColor = function (){
+        clearInterval(intervalid);
+        intervalid = null;
+    }
+
+    const changeBgColor = function (){
+        const color = RandomColor();
+        document.body.style.backgroundColor = RandomColor();
+        document.getElementById('output').textContent = color;
+    }
+
+    document.querySelector('#start').addEventListener('click', StartChangingColor);
+    document.querySelector('#stop').addEventListener('click', stopChangingColor);
+    
+    
+    
+</script>
+</html>
